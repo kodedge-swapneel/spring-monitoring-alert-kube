@@ -104,7 +104,7 @@ To start minikube run command :
 
 - Run command : 
   - ```
-    kubectl apply -f alert-setup/prometheus-rule.yaml
+    kubectl apply -f alert-config/prometheus-rule.yaml
     ```
 - Verify Rule is created by ```kubectl get prometheusRules```
 - Same can be verified from Prometheus WebUI.
@@ -113,7 +113,7 @@ To start minikube run command :
 
 - Run command:
   
-  ```helm upgrade prometheus prometheus-community/kube-prometheus-stack  -f alert-setup/values.yaml```
+  ```helm upgrade prometheus prometheus-community/kube-prometheus-stack  -f alert-config/values.yaml```
 
 - Verify the selectors added in the crd.
   
@@ -124,7 +124,7 @@ To start minikube run command :
     - Before applying this configuration, change ```slack_webhook_url``` as per your channel
     - Change channel name using ```channel```
 
-  ```kubectl apply -f alert-setup/alert-config.yaml```
+  ```kubectl apply -f alert-config/alert-config.yaml```
 
 
 - Do port-forward to alert service
@@ -141,7 +141,7 @@ To start minikube run command :
 ### Troubleshooting:
 1. Add ```loglevel: debug``` in value.yaml for aler manager configuration. And update using following commands:
 
-    ```helm upgrade prometheus prometheus-community/kube-prometheus-stack  -f alert-setup/values.yaml```
+    ```helm upgrade prometheus prometheus-community/kube-prometheus-stack  -f alert-config/values.yaml```
 
 2. Then check logs for any error in pods :
 
