@@ -1,0 +1,15 @@
+server:
+  port : 8080
+spring:
+  application:
+    name: spring-monitoring-alert-kube
+management:
+  endpoints:
+    web:
+      exposure:
+        include:  health, prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+

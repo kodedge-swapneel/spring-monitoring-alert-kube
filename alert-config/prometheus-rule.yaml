@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: spring-boot-microservice-rules
+  labels:
+    release: prometheus
+spec:
+  groups:
+    - name: spring-boot-microservice-error
+      rules:
+        - alert: HighErrorRate
+          expr: sum(rate(http_server_requests_seconds_count{job="spring-microservice-job", status="500"}[1m]))/ sum(rate(http_server_requests_seconds_count{job="spring-microservice-job"}[1m])) * 100 > 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "High error rate in spring application"
+            description: "High error rate detected in spring application ({{ $value }}%)"

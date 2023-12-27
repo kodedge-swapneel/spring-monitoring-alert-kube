@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: slack-webhook
+  labels:
+    release: prometheus
+type: Opaque
+stringData:
+  slack_webhook_url: 'https://hooks.slack.com/services/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'
+
+---
+
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: spring-alertmanager-config
+  labels:
+    release: prometheus
+spec:
+  route:
+    groupBy: ['alertname']
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 1h
+    continue: true
+    receiver: 'slack-notification'
+    routes:
+      - receiver: 'slack-notification'
+        continue: true
+  receivers:
+    - name: 'slack-notification'
+      slackConfigs:
+        - channel: 'yt-alert'
+          apiURL:
+            name: slack-webhook
+            key: slack_webhook_url
+          title: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}"
+          text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
