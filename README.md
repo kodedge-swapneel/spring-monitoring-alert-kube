@@ -122,7 +122,7 @@ To start minikube run command :
 - Run command :
   - Note: 
     - Before applying this configuration, change ```slack_webhook_url``` as per your channel
-    - Change channel name using ```channel```
+    - Change the value of field ```channel``` with your channel name.
 
   ```kubectl apply -f alert-config/alert-config.yaml```
 
