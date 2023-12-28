@@ -1,4 +1,4 @@
-# Trigger Alerts and Alerts notification from Spring Boot service using Prometheus and Grafana
+# Setup alerts and get alerts notification in slack channel for Spring Boot service using Prometheus and Grafana
 
 ## [Click here to watch the video for demonstration.](https://youtu.be/luEUTR4cYl4)
 
