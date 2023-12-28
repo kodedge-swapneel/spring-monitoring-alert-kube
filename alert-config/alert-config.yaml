@@ -6,7 +6,7 @@ metadata:
     release: prometheus
 type: Opaque
 stringData:
-  slack_webhook_url: 'https://hooks.slack.com'
+  slack_webhook_url: 'your_slack_webhook_url'
 
 ---
 

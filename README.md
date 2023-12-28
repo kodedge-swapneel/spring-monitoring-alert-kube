@@ -1,6 +1,6 @@
 # Trigger Alerts and Alerts notification from Spring Boot service using Prometheus and Grafana
 
-## [Click here to watch the video for demonstration.]()
+## [Click here to watch the video for demonstration.](https://youtu.be/luEUTR4cYl4)
 
 In this project, I have demonstrated How to : 
 1. Create and Setup PrometheusRules and AlertManager. 
@@ -136,7 +136,7 @@ To start minikube run command :
 - In case configurations not updated then restart AlertManager pod and Prometheus Operator pod.
 
 ### Setup AlertManager:
-- To set up alerts in Grafana, [Please watch the video.]()
+- To set up alerts in Grafana, [Please watch the video.](https://youtu.be/luEUTR4cYl4)
 
 ### Troubleshooting:
 1. Add ```loglevel: debug``` in value.yaml for aler manager configuration. And update using following commands:
