@@ -328,7 +328,7 @@ alertmanager:
           - channel: "yt-alert"
             title: "{{ range .Alerts }}{{ .Annotations.summary }}\n{{ end }}"
             text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
-            api_url: 'https://hooks.slack.com/services/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'
+            api_url: 'your_slack_webhook_url'
 
   ## Alertmanager configuration directives (as string type, preferred over the config hash map)
   ## stringConfig will be used only, if tplConfig is true
